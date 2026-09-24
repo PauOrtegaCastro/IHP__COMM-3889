@@ -1,0 +1,90 @@
+
+===========================================================================
+report_checks -unconstrained
+===========================================================================
+======================= nom_slow_1p08V_125C Corner ===================================
+
+Startpoint: clk (clock source 'clk')
+Endpoint: uo_out[2] (output port clocked by clk)
+Path Group: clk
+Path Type: max
+
+Fanout         Cap        Slew       Delay        Time   Description
+---------------------------------------------------------------------------------------------
+                                 10.000000   10.000000   clock clk (fall edge)
+                                  0.000000   10.000000   clock source latency
+     2    0.048291    0.081800    0.055784   10.055784 v clk (in)
+                                                         clk (net)
+                      0.082171    0.000000   10.055784 v clkbuf_0_clk/A (sg13g2_buf_16)
+     1    0.018266    0.031256    0.131134   10.186918 v clkbuf_0_clk/X (sg13g2_buf_16)
+                                                         clknet_0_clk (net)
+                      0.031276    0.001541   10.188459 v clkbuf_1_0__f_clk/A (sg13g2_buf_16)
+     1    0.003409    0.025976    0.099995   10.288454 v clkbuf_1_0__f_clk/X (sg13g2_buf_16)
+                                                         clknet_1_0__leaf_clk (net)
+                      0.025976    0.000132   10.288587 v _355_/A (sg13g2_buf_1)
+     1    0.008166    0.055721    0.110395   10.398981 v _355_/X (sg13g2_buf_1)
+                                                         uo_out[2] (net)
+                      0.055729    0.000660   10.399641 v uo_out[2] (out)
+                                             10.399641   data arrival time
+
+                                 20.000000   20.000000   clock clk (rise edge)
+                                  0.000000   20.000000   clock network delay (propagated)
+                                 -0.250000   19.750002   clock uncertainty
+                                  0.000000   19.750002   clock reconvergence pessimism
+                                 -4.000000   15.750001   output external delay
+                                             15.750001   data required time
+---------------------------------------------------------------------------------------------
+                                             15.750001   data required time
+                                            -10.399641   data arrival time
+---------------------------------------------------------------------------------------------
+                                              5.350359   slack (MET)
+
+
+
+
+===========================================================================
+report_checks --slack_max -0.01
+============================================================================
+======================= nom_slow_1p08V_125C Corner ===================================
+
+No paths found.
+
+
+===========================================================================
+ report_check_types -max_slew -max_cap -max_fanout -violators
+============================================================================
+======================= nom_slow_1p08V_125C Corner ===================================
+
+
+
+===========================================================================
+report_parasitic_annotation -report_unannotated
+============================================================================
+Found 16 unannotated drivers.
+ ena
+ ui_in[3]
+ ui_in[4]
+ ui_in[5]
+ ui_in[6]
+ ui_in[7]
+ uio_in[0]
+ uio_in[1]
+ uio_in[2]
+ uio_in[3]
+ uio_in[4]
+ uio_in[5]
+ uio_in[6]
+ uio_in[7]
+ clkload0/Y
+ clkload1/Y
+Found 0 partially unannotated drivers.
+
+===========================================================================
+max slew violation count 0
+max fanout violation count 0
+max cap violation count 0
+============================================================================
+
+===========================================================================
+check_setup -verbose -unconstrained_endpoints -multiple_clock -no_clock -no_input_delay -loops -generated_clocks
+===========================================================================

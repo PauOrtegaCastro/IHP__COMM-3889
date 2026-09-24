@@ -1,7 +1,7 @@
 {
   "name": "COMM-3889",
   "design_type": "SPI",
-  "technology": "IHP",
+  "technology": "IHP 130nm",
   "unique_id": "3889",
   "license": "Apache-2.0",
   "trl": 5,
